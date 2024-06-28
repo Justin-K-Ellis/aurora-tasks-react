@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Card from "./components/Card";
 import Input from "./components/Input";
+import Nav from "./components/Nav";
 
 const App = () => {
   const [list, setList] = useState([]);
@@ -24,32 +25,39 @@ const App = () => {
 
   return (
     <>
-      <h1>Aurora Tasks</h1>
-      <Input
-        list={list}
-        setList={setList}
-        options={options}
-        setOptions={setOptions}
-      />
-      <h2>Your Tasks:</h2>
-      <ul>
-        {list.map((task) => {
-          return (
-            <li key={task.id}>
-              <Card
-                name={task.name}
-                description={task.description}
-                dueDate={task.dueDate}
-                category={task.selectedCategory}
-                done={task.done}
-                task={task}
-                deleteTask={deleteTask}
-                toggleDoneStatus={toggleDoneStatus}
-              />
-            </li>
-          );
-        })}
-      </ul>
+      <header>
+        <h1>Aurora Tasks</h1>
+      </header>
+      <main>
+        <Nav options={options} />
+        <section className="main-content">
+          <Input
+            list={list}
+            setList={setList}
+            options={options}
+            setOptions={setOptions}
+          />
+          <h2>Your Tasks:</h2>
+          <ul>
+            {list.map((task) => {
+              return (
+                <li key={task.id}>
+                  <Card
+                    name={task.name}
+                    description={task.description}
+                    dueDate={task.dueDate}
+                    category={task.selectedCategory}
+                    done={task.done}
+                    task={task}
+                    deleteTask={deleteTask}
+                    toggleDoneStatus={toggleDoneStatus}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </main>
     </>
   );
 };

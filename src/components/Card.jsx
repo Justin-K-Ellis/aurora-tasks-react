@@ -3,6 +3,7 @@ const Card = ({
   description,
   dueDate,
   done,
+  category,
   task,
   deleteTask,
   toggleDoneStatus,
@@ -12,6 +13,7 @@ const Card = ({
       <p>Task: {name}</p>
       <p>{description}</p>
       <p>Due: {dueDate}</p>
+      <p>Category: {category}</p>
       <button type="button" onClick={() => toggleDoneStatus(task.id)}>
         {done === true ? "Done" : "Not done"}
       </button>

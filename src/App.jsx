@@ -5,6 +5,7 @@ import Input from "./components/Input";
 
 const App = () => {
   const [list, setList] = useState([]);
+  const [options, setOptions] = useState(["Life", "Shopping", "Work"]);
 
   function deleteTask(taskToDel) {
     const remainingTasks = list.filter((task) => task !== taskToDel);
@@ -24,7 +25,12 @@ const App = () => {
   return (
     <>
       <h1>Aurora Tasks</h1>
-      <Input list={list} setList={setList} />
+      <Input
+        list={list}
+        setList={setList}
+        options={options}
+        setOptions={setOptions}
+      />
       <h2>Your Tasks:</h2>
       <ul>
         {list.map((task) => {
@@ -34,6 +40,7 @@ const App = () => {
                 name={task.name}
                 description={task.description}
                 dueDate={task.dueDate}
+                category={task.selectedCategory}
                 done={task.done}
                 task={task}
                 deleteTask={deleteTask}

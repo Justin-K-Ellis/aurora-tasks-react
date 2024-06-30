@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Card from "./components/Card";
 import Input from "./components/Input";
@@ -7,6 +7,15 @@ import Nav from "./components/Nav";
 const App = () => {
   const [list, setList] = useState([]);
   const [options, setOptions] = useState(["Life", "Shopping", "Work"]);
+  const [displayList, setDisplayList] = useState(list);
+
+  function showAllTasks() {
+    setDisplayList(list);
+  }
+
+  useEffect(() => {
+    showAllTasks();
+  }, [list]);
 
   function deleteTask(taskToDel) {
     const remainingTasks = list.filter((task) => task !== taskToDel);
@@ -29,24 +38,31 @@ const App = () => {
         <h1>Aurora Tasks</h1>
       </header>
       <main>
-        <Nav options={options} />
+        <Nav
+          options={options}
+          list={list}
+          displayList={displayList}
+          showAllTasks={showAllTasks}
+          setDisplayList={setDisplayList}
+        />
         <section className="main-content">
           <Input
             list={list}
             setList={setList}
             options={options}
             setOptions={setOptions}
+            showAllTasks={showAllTasks}
           />
           <h2>Your Tasks:</h2>
           <ul>
-            {list.map((task) => {
+            {displayList.map((task) => {
               return (
                 <li key={task.id}>
                   <Card
                     name={task.name}
                     description={task.description}
                     dueDate={task.dueDate}
-                    category={task.selectedCategory}
+                    category={task.category}
                     done={task.done}
                     task={task}
                     deleteTask={deleteTask}

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
-const Input = ({ list, setList, options }) => {
+const Input = ({ list, setList, options, showAllTasks }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(options[0]);
+  const [category, setCategory] = useState(options[0]);
 
   function handleNameChange(event) {
     setName((prev) => event.target.value);
@@ -20,16 +20,14 @@ const Input = ({ list, setList, options }) => {
   }
 
   function handleCategory(event) {
-    setSelectedCategory((prev) => event.target.value);
+    setCategory((prev) => event.target.value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    setList([
-      ...list,
-      { name, description, dueDate, id: nanoid(), selectedCategory },
-    ]);
-    clearInput();
+    setList([...list, { name, description, dueDate, id: nanoid(), category }]);
+    // clearInput();
+    showAllTasks();
   }
 
   function clearInput() {
@@ -38,7 +36,7 @@ const Input = ({ list, setList, options }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <div className="input-group">
         <label htmlFor="name">Task Name</label>
         <input type="text" id="name" onChange={handleNameChange} value={name} />

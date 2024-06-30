@@ -12,8 +12,10 @@ const Card = ({
     <div className="card">
       <p>Task: {name}</p>
       <p>{description}</p>
-      <p>Due: {dueDate}</p>
-      <p>Category: {category}</p>
+      <div className="cat-due">
+        <p>Category: {category}</p>
+        <p>Due: {dueDate}</p>
+      </div>
       <button type="button" onClick={() => toggleDoneStatus(task.id)}>
         {done === true ? "Done" : "Not done"}
       </button>

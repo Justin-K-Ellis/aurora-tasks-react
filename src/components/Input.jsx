@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
+import Button from "./Button";
+
 const Input = ({ list, setList, options, showAllTasks }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -75,7 +77,14 @@ const Input = ({ list, setList, options, showAllTasks }) => {
         </select>
       </div>
       <div className="input-group">
-        <button type="submit">Add Task</button>
+        {/* <button type="submit">Add Task</button> */}
+        <Button
+          color="white"
+          background="purple"
+          text="Add Task"
+          handleClick={null}
+          type="submit"
+        />
       </div>
     </form>
   );

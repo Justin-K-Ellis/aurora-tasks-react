@@ -40,10 +40,12 @@ const App = () => {
       <main>
         <Nav
           options={options}
+          setOptions={setOptions}
           list={list}
           displayList={displayList}
           showAllTasks={showAllTasks}
           setDisplayList={setDisplayList}
+          setList={setList}
         />
         <section className="main-content">
           <Input

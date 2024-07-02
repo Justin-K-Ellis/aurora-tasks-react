@@ -30,9 +30,6 @@ const Card = ({
         handleClick={() => toggleDoneStatus(task.id)}
         type=""
       />
-      {/* <button type="button" onClick={() => toggleDoneStatus(task.id)}>
-        {done === true ? "Not done" : "Done!"}
-      </button> */}
       <Button
         text="Delete"
         color="white"

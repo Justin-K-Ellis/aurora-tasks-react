@@ -4,6 +4,7 @@ const Button = ({ color, background, text, handleClick, type }) => {
       type={type}
       onClick={handleClick}
       style={{ color: color, background: background }}
+      className="delete-btn"
     >
       {text}
     </button>

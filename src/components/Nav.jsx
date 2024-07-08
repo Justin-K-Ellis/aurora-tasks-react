@@ -16,6 +16,7 @@ const Nav = ({
 
   return (
     <nav className="navbar">
+      <h2>Lists</h2>
       <ul>
         <li onClick={showAllTasks}>All</li>
         {options.map((item) => (

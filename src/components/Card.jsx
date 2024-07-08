@@ -15,8 +15,8 @@ const Card = ({
 
   return (
     <div className="card" style={{ color, textDecorationLine }}>
-      <p>Task: {name}</p>
-      <p>{description}</p>
+      <p className="task-name">{name}</p>
+      <p className="task-description">{description}</p>
       <div className="cat-due">
         <p>
           Category: <span className="category">{category}</span>
@@ -26,14 +26,14 @@ const Card = ({
       <Button
         text={done === true ? "Not done" : "Done!"}
         color="white"
-        background="green"
+        background="var(--accent-color)"
         handleClick={() => toggleDoneStatus(task.id)}
         type=""
       />
       <Button
         text="Delete"
         color="white"
-        background="red"
+        background="var(--primary-color)"
         handleClick={() => deleteTask(task)}
         type="button"
       />

@@ -38,55 +38,62 @@ const Input = ({ list, setList, options, showAllTasks }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <div className="input-group">
-        <label htmlFor="name">Task Name</label>
-        <input type="text" id="name" onChange={handleNameChange} value={name} />
-      </div>
-      <div className="input-group">
-        <label htmlFor="description">Description</label>
-        <input
-          type="text"
-          id="description"
-          onChange={handleDescriptionChange}
-        />
-      </div>
-      <div className="input-group">
-        <label htmlFor="due-date">Due Date:</label>
-        <input
-          type="date"
-          id="due-date"
-          value={dueDate}
-          onChange={handleDateChange}
-        />
-      </div>
-      <div className="input-group">
-        <label htmlFor="category-options">Category</label>
-        <select
-          name="category-options"
-          id="category-options"
-          onChange={handleCategory}
-        >
-          {options.map((option) => {
-            return (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      <div className="input-group">
-        {/* <button type="submit">Add Task</button> */}
-        <Button
-          color="white"
-          background="purple"
-          text="Add Task"
-          handleClick={null}
-          type="submit"
-        />
-      </div>
-    </form>
+    <div className="form-styles">
+      <h2 id="form-title">Add a Task</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="input-group">
+          <label htmlFor="name">Task Name</label>
+          <input
+            type="text"
+            id="name"
+            onChange={handleNameChange}
+            value={name}
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            id="description"
+            onChange={handleDescriptionChange}
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="due-date">Due Date</label>
+          <input
+            type="date"
+            id="due-date"
+            value={dueDate}
+            onChange={handleDateChange}
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="category-options">Category</label>
+          <select
+            name="category-options"
+            id="category-options"
+            onChange={handleCategory}
+          >
+            {options.map((option) => {
+              return (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div className="input-group">
+          <Button
+            color="white"
+            background="var(--secondary-color)"
+            text="Add Task"
+            handleClick={null}
+            type="submit"
+          />
+        </div>
+      </form>
+    </div>
   );
 };
 

@@ -5,18 +5,17 @@ const EditingMode = ({ options, setOptions, toggleEditStatus }) => {
   const [name, setName] = useState("");
   function handleSubmit(event) {
     event.preventDefault();
-    // console.log(options); // Why is this undefined?
     setOptions([...options, name]);
     toggleEditStatus();
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="editing-mode">
         <label htmlFor="add-category">
           <Button
-            color="black"
-            background="lightgray"
+            color="white"
+            background="var(--reverse-gradient)"
             text="→"
             handleClick={null}
             type="submit"

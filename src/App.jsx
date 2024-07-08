@@ -55,25 +55,27 @@ const App = () => {
             setOptions={setOptions}
             showAllTasks={showAllTasks}
           />
-          <h2>Your Tasks:</h2>
-          <ul>
-            {displayList.map((task) => {
-              return (
-                <li key={task.id}>
-                  <Card
-                    name={task.name}
-                    description={task.description}
-                    dueDate={task.dueDate}
-                    category={task.category}
-                    done={task.done}
-                    task={task}
-                    deleteTask={deleteTask}
-                    toggleDoneStatus={toggleDoneStatus}
-                  />
-                </li>
-              );
-            })}
-          </ul>
+          <div className="tasks-container">
+            <h2>Your Tasks ({displayList.length})</h2>
+            <ul>
+              {displayList.map((task) => {
+                return (
+                  <li key={task.id}>
+                    <Card
+                      name={task.name}
+                      description={task.description}
+                      dueDate={task.dueDate}
+                      category={task.category}
+                      done={task.done}
+                      task={task}
+                      deleteTask={deleteTask}
+                      toggleDoneStatus={toggleDoneStatus}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </section>
       </main>
     </>

@@ -4,8 +4,8 @@ const NormalMode = ({ toggleEditStatus }) => {
   return (
     <>
       <Button
-        color="black"
-        background="lightgray"
+        color="white"
+        background="var(--reverse-gradient)"
         text="+ Add Category"
         handleClick={toggleEditStatus}
         type="button"

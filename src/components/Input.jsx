@@ -28,7 +28,7 @@ const Input = ({ list, setList, options, showAllTasks }) => {
   function handleSubmit(event) {
     event.preventDefault();
     setList([...list, { name, description, dueDate, id: nanoid(), category }]);
-    // clearInput();
+    clearInput();
     showAllTasks();
   }
 
